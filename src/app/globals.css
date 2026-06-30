@@ -1,18 +1,137 @@
 @import "tailwindcss";
 
-body {
-  background-color: #FAFAFA;
-  color: #18181b;
-  font-feature-settings: "kern" 1;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+/* ═══════════════════════════════════════════════════════════════
+   PROJECT_OS v3.0 — Design Token System
+   Advanced Engineering Workstation
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ─── Color Tokens ─── */
+  --color-paper: #F4F5F7;      /* Cool-gray system background */
+  --color-card: #FFFFFF;       /* Module background */
+  --color-charcoal: #111827;   /* Primary text / Deep system background */
+  --color-slate: #4B5563;      /* Secondary text / Annotations */
+  --color-steel: #D1D5DB;      /* Panel borders */
+  --color-blueprint: #0F4C81;  /* Primary brand / Interaction */
+  --color-eng-green: #2D6A4F;  /* Status / Online */
+  --color-amber: #C69214;      /* Highlight / Hover Accent */
+
+  /* ─── Typography ─── */
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace;
+
+  /* ─── Shadows ─── */
+  /* Replaced physical offset shadows with crisp, low-elevation GUI panel shadows */
+  --shadow-panel: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-none: 0 0 0 rgba(0, 0, 0, 0);
 }
 
-/* Enhancing Readability for the Magazine Look */
+/* ═══════════════════════════════════════════════════════════════
+   Global Resets — Industrial Geometry
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Strip all rounded corners — sharp, digital edges only */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Body — System Workspace Environment
+   ═══════════════════════════════════════════════════════════════ */
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-charcoal);
+  font-feature-settings: "kern" 1;
+
+  /* Subtle 30x30px workstation grid in faint steel */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 29px,
+      rgba(209, 213, 219, 0.4) 29px,
+      rgba(209, 213, 219, 0.4) 30px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 29px,
+      rgba(209, 213, 219, 0.4) 29px,
+      rgba(209, 213, 219, 0.4) 30px
+    );
+  background-size: 30px 30px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Typography Rules
+   ═══════════════════════════════════════════════════════════════ */
+
 p {
-  line-height: 1.75;
+  line-height: 1.6; /* Slightly tighter for a software feel */
   letter-spacing: -0.01em;
 }
 
 h1, h2, h3 {
   letter-spacing: -0.03em;
+  font-family: var(--font-sans);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Link Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+a {
+  text-decoration: none;
+  transition: color 0.15s ease-out; /* Snappy */
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Interaction Utilities — Snappy, zero-bounce
+   ═══════════════════════════════════════════════════════════════ */
+
+.btn-sys {
+  transition: all 0.15s ease-out; /* Fast, responsive */
+}
+
+.btn-sys:active {
+  /* Replace bouncing transform with a crisp inset shadow click state */
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  transform: none; 
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Availability Pulse — Engineering Green Status Indicator
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes pulse-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.status-pulse {
+  animation: pulse-status 2s ease-in-out infinite;
+  color: var(--color-eng-green);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   System Annotations & Metadata
+   ═══════════════════════════════════════════════════════════════ */
+
+.font-tech {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sys-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--color-slate);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+  display: block;
 }

@@ -3,60 +3,81 @@
 import { motion } from "framer-motion";
 import { Code2, Blocks, Cpu, Wrench } from "lucide-react";
 
-const skillCategories = [
+const systemCapabilities = [
   {
-    title: "Languages",
-    icon: <Code2 className="w-8 h-8 mb-6 text-zinc-900" />,
-    skills: ["Python", "C++", "JavaScript", "SQL (PostgreSQL, SQLite)", "Verilog", "HTML/CSS"]
+    class: "SYS.LANG",
+    title: "Core Languages",
+    icon: <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-charcoal" />,
+    specs: ["Python", "C++", "JavaScript", "SQL (Pg/SQLite)", "Verilog", "HTML/CSS"],
+    version: "v4.0"
   },
   {
-    title: "Frameworks",
-    icon: <Blocks className="w-8 h-8 mb-6 text-zinc-900" />,
-    skills: ["React.js", "Next.js", "Tailwind CSS", "Streamlit", "Flask", "Pandas", "NumPy", "Raylib"]
+    class: "SYS.FRMWK",
+    title: "Frameworks & Libs",
+    icon: <Blocks className="w-4 h-4 sm:w-5 sm:h-5 text-charcoal" />,
+    specs: ["React.js", "Next.js", "Tailwind", "Streamlit", "Flask", "Pandas", "Raylib"],
+    version: "v3.2"
   },
   {
-    title: "Hardware",
-    icon: <Cpu className="w-8 h-8 mb-6 text-zinc-900" />,
-    skills: ["FPGA", "Xilinx Artix-7", "Vivado", "Multisim", "SolidWorks", "AutoCAD"]
+    class: "SYS.HW",
+    title: "Hardware Architecture",
+    icon: <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-charcoal" />,
+    specs: ["FPGA", "Xilinx Artix-7", "Vivado", "Multisim", "SolidWorks", "AutoCAD"],
+    version: "v2.1"
   },
   {
-    title: "Dev Tools",
-    icon: <Wrench className="w-8 h-8 mb-6 text-zinc-900" />,
-    skills: ["Docker", "AWS (EC2)", "Git", "Linux", "Figma", "Photoshop", "Canva"]
+    class: "SYS.DEV",
+    title: "Development Tools",
+    icon: <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-charcoal" />,
+    specs: ["Docker", "AWS (EC2)", "Git", "Linux", "Figma", "Photoshop"],
+    version: "v5.0"
   }
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-40 px-6 md:px-24 max-w-7xl mx-auto">
+    <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6 md:px-24 max-w-7xl mx-auto border-t border-steel/50">
       
-      <div className="mb-24 text-center md:text-left">
-        <h2 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-zinc-900 mb-6">
-          Technical Arsenal.
+      <div className="mb-16 sm:mb-20">
+        <div className="flex items-center gap-4 mb-4">
+          <span className="h-[2px] w-8 sm:w-12 bg-charcoal"></span>
+          <span className="sys-label !mb-0 text-charcoal">Resource Allocation</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-charcoal mb-4">
+          System Capabilities
         </h2>
-        <p className="text-xl text-zinc-500 max-w-2xl font-medium">
-          A comprehensive toolkit spanning full-stack development, hardware engineering, and data science.
+        <p className="text-base sm:text-lg text-slate max-w-2xl font-mono text-sm">
+          // Available toolchains, hardware interfaces, and software frameworks.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {skillCategories.map((category, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {systemCapabilities.map((cap, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 30, rotate: 2 }}
-            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
-            className="bg-white p-10 rounded-[2rem] border border-zinc-200/80 hover:border-zinc-300 hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-500"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.2, ease: "easeOut", delay: index * 0.1 }}
+            className="group bg-card border border-steel p-5 sm:p-6 transition-all duration-150 ease-out hover:border-blueprint shadow-sm hover:shadow-panel"
           >
-            {category.icon}
-            <h3 className="text-2xl font-bold text-zinc-900 mb-8">{category.title}</h3>
+            <div className="flex justify-between items-start mb-5 sm:mb-6 border-b border-steel/30 pb-3 sm:pb-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-1.5 sm:p-2 bg-paper border border-steel group-hover:border-blueprint group-hover:bg-blueprint/5 transition-colors">
+                  {cap.icon}
+                </div>
+                <span className="font-tech text-[9px] sm:text-[10px] text-slate">{cap.class}</span>
+              </div>
+              <span className="font-tech text-[9px] sm:text-[10px] text-slate bg-paper px-1.5 border border-steel/50">{cap.version}</span>
+            </div>
             
-            <ul className="space-y-4">
-              {category.skills.map((skill, i) => (
-                <li key={i} className="flex items-center text-zinc-600 font-medium">
-                  <span className="w-1.5 h-1.5 bg-zinc-900 rounded-full mr-3"></span>
-                  {skill}
+            <h3 className="text-base sm:text-lg font-bold text-charcoal mb-4 sm:mb-6">{cap.title}</h3>
+            
+            <ul className="space-y-2 sm:space-y-3">
+              {cap.specs.map((spec, i) => (
+                <li key={i} className="flex items-center text-slate font-mono text-[11px] sm:text-xs">
+                  <span className="text-blueprint opacity-50 mr-2">›</span>
+                  <span className="break-words w-full">{spec}</span>
                 </li>
               ))}
             </ul>

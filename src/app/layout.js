@@ -1,5 +1,19 @@
 import "./globals.css";
-import Navbar from "../components/Navbar"; // (or ./components/Navbar depending on your path)
+import { Inter, JetBrains_Mono } from "next/font/google";
+import Navbar from "../components/Navbar";
+
+/* ─── Typography: Load engineering-grade typefaces ─── */
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
 
 export const metadata = {
   title: "Shayan Yazdanie | Computer Engineering",
@@ -15,11 +29,11 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
       {/* overflow-x-hidden acts as a strict boundary. 
         If an animation or grid pushes past the screen edge, it clips it rather than breaking the layout! 
       */}
-      <body className="antialiased overflow-x-hidden w-full max-w-[100vw]">
+      <body className="font-sans overflow-x-hidden w-full max-w-[100vw]">
         <Navbar />
         {children}
       </body>
