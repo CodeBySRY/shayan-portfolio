@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-// Custom GitHub SVG Icon to replace the deprecated Lucide brand icon
 const GithubIcon = ({ size = 22 }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -57,51 +56,64 @@ const projectsData = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-24 max-w-7xl mx-auto">
+    <section id="projects" className="py-40 px-6 md:px-24 max-w-7xl mx-auto">
       
-      <div className="mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-4">
-          Selected Works
-        </h2>
-        <p className="text-lg text-zinc-600 max-w-2xl">
-          A collection of full-stack platforms, autonomous systems, and data-driven solutions.
-        </p>
+      <div className="mb-24">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30, rotate: 2 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+          className="text-5xl md:text-7xl font-extrabold tracking-tighter text-zinc-900 mb-6"
+        >
+          Selected Works.
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0, y: 30, rotate: 2 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          className="text-xl text-zinc-500 max-w-2xl font-medium"
+        >
+          A collection of full-stack platforms, autonomous systems, and data-driven solutions engineered for scale.
+        </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {projectsData.map((project, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, rotate: 2 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -8 }}
-            className="group bg-white p-8 rounded-3xl border border-zinc-200 hover:border-zinc-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index * 0.15 }}
+            className="group relative bg-white p-12 rounded-[2.5rem] border border-zinc-200/80 hover:border-zinc-300 hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-500 flex flex-col justify-between"
           >
             <div>
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-bold text-zinc-900">{project.title}</h3>
-                <div className="flex gap-3">
-                  <a href={project.github} className="text-zinc-400 hover:text-zinc-900 transition-colors">
-                    <GithubIcon size={22} />
+              <div className="flex justify-between items-start mb-8">
+                <div>
+                  <h3 className="text-3xl font-bold text-zinc-900 tracking-tight mb-2">{project.title}</h3>
+                  <p className="text-sm font-semibold tracking-wider text-zinc-400 uppercase">{project.date}</p>
+                </div>
+                <div className="flex gap-4">
+                  <a href={project.github} className="text-zinc-400 hover:text-zinc-900 transition-transform hover:scale-110 duration-300">
+                    <GithubIcon size={26} />
                   </a>
-                  <a href={project.live} className="text-zinc-400 hover:text-zinc-900 transition-colors">
-                    <ArrowUpRight size={24} />
+                  <a href={project.live} className="text-zinc-400 hover:text-zinc-900 transition-transform hover:scale-110 duration-300">
+                    <ArrowUpRight size={28} />
                   </a>
                 </div>
               </div>
-              <p className="text-sm font-medium text-zinc-400 mb-6">{project.date}</p>
-              <p className="text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-zinc-600 leading-relaxed mb-10 max-w-prose">
                 {project.description}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-auto">
+            <div className="flex flex-wrap gap-3 mt-auto">
               {project.tech.map((tech, i) => (
                 <span 
                   key={i} 
-                  className="px-4 py-1.5 bg-zinc-50 border border-zinc-200 text-zinc-600 text-xs font-semibold rounded-full"
+                  className="px-5 py-2.5 bg-white border border-zinc-200 text-zinc-600 text-sm font-bold rounded-xl cursor-default transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-800/10 hover:bg-slate-800 hover:text-blue-50 hover:border-slate-800"
                 >
                   {tech}
                 </span>

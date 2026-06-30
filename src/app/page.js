@@ -38,9 +38,11 @@ export default function Home() {
           >
             <a 
               href="#projects" 
-              className="px-8 py-4 bg-zinc-900 text-white text-sm font-semibold rounded-full hover:bg-zinc-800 transition-colors shadow-sm"
-            >
-              View My Work
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="px-8 py-4 bg-zinc-900 text-white text-sm font-semibold rounded-full hover:bg-zinc-800 transition-colors shadow-lg shadow-zinc-900/20"
+>
+  View My Work
             </a>
             <a 
               href="https://github.com/shayan-yazdanie" 
