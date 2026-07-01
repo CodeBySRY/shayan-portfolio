@@ -29,6 +29,10 @@ export default function Footer() {
             <span className="font-bold tracking-widest text-[11px] sm:text-xs">SYSTEM.ONLINE</span>
           </div>
           
+          <p className="text-blueprint font-bold">
+            <span className="opacity-50">00:</span> &gt; HINT: PRESS [CMD+K] TO ACCESS SYSTEM COMMANDS
+          </p>
+          
           <p className="text-steel break-words">
             <span className="opacity-50">01:</span> &gt; INITIALIZING COMMUNICATION PROTOCOL...
           </p>

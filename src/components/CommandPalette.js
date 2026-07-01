@@ -1,11 +1,23 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSystem } from '../context/SystemContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CommandPalette() {
   const { isPaletteOpen, setIsPaletteOpen } = useSystem();
   const [input, setInput] = useState('');
+
+  // GLOBAL LISTENER: Always active
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsPaletteOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, [setIsPaletteOpen]);
 
   const commands = [
     { label: "/NAV_PROJECTS", action: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) },
@@ -43,7 +55,7 @@ export default function CommandPalette() {
         />
         <div className="mt-4 flex flex-col gap-2">
           {commands.map((cmd) => (
-            <div key={cmd.label} className="text-left font-mono text-sm text-slate p-2">
+            <div key={cmd.label} className="text-left font-mono text-sm text-slate p-2 border-b border-steel/10">
               &gt; {cmd.label}
             </div>
           ))}

@@ -6,7 +6,7 @@ import Experience from "../components/Experience";
 import Skills from "../components/Skills";
 import Footer from "../components/Footer";
 import DecryptText from "../components/DecryptText";
-import ResumeArtifact from "../components/ResumeArtifact"; // Ensure this import is present
+import ResumeArtifact from "../components/ResumeArtifact"; 
 
 // Scroll Progress Helper Component
 function ScrollProgress() {
@@ -41,7 +41,7 @@ export default function Home() {
             className="flex flex-wrap gap-2 sm:gap-4 text-[10px] sm:text-xs font-tech text-slate mb-8 md:absolute md:-top-12 md:left-0 md:mb-0"
           >
             <span className="border border-steel px-2 py-0.5 bg-card whitespace-nowrap">UID: SHAYAN_Y</span>
-            <span className="border border-steel px-2 py-0.5 bg-card whitespace-nowrap">ROLE: SYS_ARCHITECT</span>
+            <span className="border border-steel px-2 py-0.5 bg-card whitespace-nowrap">STATUS: GIKI // 5th_SEM</span>
             <span className="border border-steel px-2 py-0.5 bg-card flex items-center gap-1 whitespace-nowrap">
               <span className="w-1.5 h-1.5 bg-eng-green inline-block"></span>
               SYS_ONLINE

@@ -17,7 +17,7 @@ export default function ResumeArtifact() {
           </p>
         </div>
         <a 
-          href="/your-resume.pdf" 
+          href="/Shayan's Resume.pdf" 
           download
           // 2. The missing Event Listener that triggers the Log
           onClick={() => addLog("DATA_ARTIFACT_REQUESTED: RESUME_PDF")}
