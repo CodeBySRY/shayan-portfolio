@@ -1,23 +1,11 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSystem } from '../context/SystemContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CommandPalette() {
   const { isPaletteOpen, setIsPaletteOpen } = useSystem();
   const [input, setInput] = useState('');
-
-  // GLOBAL LISTENER: Always active
-  useEffect(() => {
-    const handleGlobalKeyDown = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        setIsPaletteOpen(prev => !prev);
-      }
-    };
-    window.addEventListener('keydown', handleGlobalKeyDown);
-    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
-  }, [setIsPaletteOpen]);
 
   const commands = [
     { label: "/NAV_PROJECTS", action: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) },
