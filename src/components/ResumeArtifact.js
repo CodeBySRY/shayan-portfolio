@@ -11,7 +11,7 @@ export default function ResumeArtifact() {
           </p>
         </div>
         <a 
-          href="/your-resume.pdf" 
+          href="/Shayan's Resume.pdf" 
           download
           className="px-8 py-4 bg-blueprint text-white font-bold font-mono uppercase tracking-widest border-2 border-blueprint hover:bg-charcoal hover:border-charcoal transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
         >
