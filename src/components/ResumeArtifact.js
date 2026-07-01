@@ -1,4 +1,10 @@
+"use client";
+import { useSystem } from "../context/SystemContext";
+
+
 export default function ResumeArtifact() {
+    const { addLog } = useSystem();
+    
   return (
     <section className="py-20 px-6 md:px-24 max-w-7xl mx-auto border-t-2 border-steel">
       <div className="bg-white border-2 border-steel p-8 shadow-hard flex flex-col md:flex-row justify-between items-center gap-6">
