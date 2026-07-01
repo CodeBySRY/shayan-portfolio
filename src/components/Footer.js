@@ -50,7 +50,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6 lg:text-right w-full lg:w-auto pt-8 border-t border-steel/30 lg:border-t-0 lg:pt-0">
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:justify-end">
             <a 
-              href="https://github.com/shayan-yazdanie" 
+              href="https://github.com/CodeBySRY" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex justify-center items-center gap-2 px-3 py-2 sm:py-1.5 border border-steel hover:border-blueprint hover:text-blueprint transition-colors w-full sm:w-auto"

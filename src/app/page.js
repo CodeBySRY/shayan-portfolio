@@ -77,7 +77,7 @@ export default function Home() {
               EXECUTE: VIEW_WORK
             </a>
             <a 
-              href="https://github.com/shayan-yazdanie" 
+              href="https://github.com/CodeBySRY" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-sys w-full sm:w-auto text-center px-8 py-3.5 bg-card text-charcoal border border-steel text-sm font-tech font-bold hover:border-blueprint hover:bg-paper"
