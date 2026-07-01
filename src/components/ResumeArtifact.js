@@ -7,7 +7,7 @@ export default function ResumeArtifact() {
             // DATA_ARTIFACT: RESUME_PDF
           </h3>
           <p className="text-slate font-mono text-sm mt-2">
-            STABLE_BUILD_DATE: 2026_07_01 | FORMAT: PDF | SIZE: 1.2MB
+            STABLE_BUILD_DATE: 2026_07_01 | FORMAT: PDF | SIZE: 110KB
           </p>
         </div>
         <a 
