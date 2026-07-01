@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import TelemetryWidget from "./TelemetryWidget";
 
 const GithubIcon = ({ size = 16 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -67,6 +68,11 @@ export default function Footer() {
               <LinkedinIcon />
               <span>NET_NODE</span>
             </a>
+          </div>
+          
+          {/* Telemetry Widget Mount Point */}
+          <div className="flex lg:justify-end">
+            <TelemetryWidget />
           </div>
           
           <div className="flex flex-col gap-1 mt-auto text-[9px] sm:text-[10px]">

@@ -2,6 +2,10 @@ import "./globals.css";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Navbar from "../components/Navbar";
 import SystemProbe from "../components/SystemProbe";
+import { SystemProvider } from "../context/SystemContext";
+// Note: Ensure you create these component files next
+import ExecutionLog from "../components/ExecutionLog";
+import CommandPalette from "../components/CommandPalette";
 
 /* ─── Typography: Load engineering-grade typefaces ─── */
 const inter = Inter({
@@ -31,9 +35,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
       <body className="font-sans overflow-x-hidden w-full max-w-[100vw] bg-paper">
-        <SystemProbe />
-        <Navbar />
-        {children}
+        <SystemProvider>
+          <SystemProbe />
+          <Navbar />
+          {children}
+          <ExecutionLog />
+          <CommandPalette />
+        </SystemProvider>
       </body>
     </html>
   );
