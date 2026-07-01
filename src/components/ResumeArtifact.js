@@ -1,5 +1,5 @@
 "use client";
-import { useSystem } from "../context/SystemContext"; // Verify this import
+import { useSystem } from "../context/SystemContext"; 
 
 export default function ResumeArtifact() {
   const { addLog } = useSystem(); // Ensure this hook is called
