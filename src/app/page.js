@@ -6,6 +6,7 @@ import Experience from "../components/Experience";
 import Skills from "../components/Skills";
 import Footer from "../components/Footer";
 import DecryptText from "../components/DecryptText";
+import ResumeArtifact from "../components/ResumeArtifact"; // Ensure this import is present
 
 // Scroll Progress Helper Component
 function ScrollProgress() {
@@ -29,12 +30,10 @@ export default function Home() {
     <>
       <ScrollProgress />
       
-      {/* Mobile-first responsive padding: px-4 sm:px-6 md:px-24 */}
       <main className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-24 max-w-7xl mx-auto pt-28 pb-12 md:pt-20">
         
         <div className="max-w-4xl relative">
           
-          {/* Dashboard Meta Annotations - Flex-wrap for mobile */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -49,7 +48,6 @@ export default function Home() {
             </span>
           </motion.div>
 
-          {/* Fluid Typography Header with Boot Animation */}
           <h1 className="text-4xl sm:text-6xl lg:text-8xl font-extrabold tracking-tighter text-charcoal mb-6">
             <DecryptText text="Shayan Rizwan Yazdanie." />
           </h1>
@@ -57,7 +55,7 @@ export default function Home() {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: 1.8 }} /* Delay to match decryption end */
+            transition={{ duration: 0.3, ease: "easeOut", delay: 1.8 }}
             className="text-base sm:text-lg lg:text-xl text-slate leading-relaxed font-medium max-w-2xl border-l-2 border-blueprint pl-4 sm:pl-6"
           >
             <p className="mb-2">Computer Engineering at GIKI.</p>
@@ -69,7 +67,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.3, delay: 2.0 }} /* Sequence after text */
+            transition={{ duration: 0.3, delay: 2.0 }}
             className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
           >
             <a 
@@ -93,6 +91,7 @@ export default function Home() {
       <Projects />
       <Experience />
       <Skills />
+      <ResumeArtifact /> 
       <Footer />
     </>
   );
