@@ -29,7 +29,7 @@ export default function Footer() {
             <span className="font-bold tracking-widest text-[11px] sm:text-xs">SYSTEM.ONLINE</span>
           </div>
           
-          <p className="text-blueprint font-bold">
+          <p className="text-sky-400 font-bold text-xs animate-system-pulse">
             <span className="opacity-50">00:</span> &gt; HINT: PRESS [CMD+K] TO ACCESS SYSTEM COMMANDS
           </p>
           
