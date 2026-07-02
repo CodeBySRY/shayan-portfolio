@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
           
           <p className="text-sky-400 font-bold text-xs animate-system-pulse">
-            <span className="opacity-50">00:</span> &gt; HINT: PRESS [CTRL+SHIFT+K] TO ACCESS SYSTEM COMMANDS
+            <span className="opacity-50">00:</span> &gt; HINT: PRESS [CTRL+`] TO ACCESS SYSTEM COMMANDS
           </p>
           
           <p className="text-steel break-words">
