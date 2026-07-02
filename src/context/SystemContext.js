@@ -11,7 +11,7 @@ export function SystemProvider({ children }) {
     const handleKeyDown = (e) => {
       // Logic for Ctrl + Shift + K
       // We use stopImmediatePropagation to ensure the browser doesn't steal the event
-      if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'K') {
+      if ((e.metaKey || e.ctrlKey) && e.key === '`') {
         e.preventDefault();
         e.stopImmediatePropagation(); 
         setIsPaletteOpen(prev => !prev);
