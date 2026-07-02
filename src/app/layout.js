@@ -21,8 +21,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Shayan Yazdanie | System Architect",
-  description: "Portfolio and technical modules by Shayan Rizwan Yazdanie.",
+  title: 'Shayan Rizwan Yazdanie | System Architect',
+  description: 'Portfolio of a Computer Engineering Student',
+  icons: {
+    icon: '/icon.png', // This tells the system to use your custom icon
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 export const viewport = {
