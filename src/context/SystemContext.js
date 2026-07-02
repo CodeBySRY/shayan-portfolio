@@ -7,17 +7,31 @@ export function SystemProvider({ children }) {
   const [logs, setLogs] = useState([]);
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
 
-  // GLOBAL KEY LISTENER: Always active
   useEffect(() => {
     const handleKeyDown = (e) => {
+      // 1. DIAGNOSTIC: Log every keypress so we see if the browser "steals" the K
+      if (e.key === 'k') {
+        console.log("SYS_DEBUG: K-key detected. State:", isPaletteOpen);
+      }
+
+      // 2. THE TRIGGER: Using e.metaKey (Mac) or e.ctrlKey (Windows)
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
+        e.preventDefault(); // Stop Browser from opening search/history
+        e.stopPropagation(); // Stop other UI components from ignoring this
+        console.log("SYS_DEBUG: Toggle command executing...");
+        
         setIsPaletteOpen(prev => !prev);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []); // Empty dependency array = runs once on mount
+
+    // 3. CAPTURE: The 'true' argument here is critical. 
+    // It makes this listener fire before anyone else.
+    window.addEventListener('keydown', handleKeyDown, { capture: true });
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown, { capture: true });
+    };
+  }, []); // Empty dependency array keeps the listener alive forever
 
   const addLog = (message) => {
     const timestamp = new Date().toLocaleTimeString('en-GB', { hour12: false });
