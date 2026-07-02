@@ -56,7 +56,7 @@ export default function Home() {
           >
             <p className="mb-2">Computer Engineering at GIKI.</p>
             <p className="font-mono text-xs sm:text-sm">
-              <span className="text-blueprint">&gt;&gt;</span> Architecting zero-trust platforms, high-performance algorithms, and robust cloud infrastructure.
+              <span className="text-blueprint">&gt;&gt;</span> Engineering practical solutions through autonomous systems, intelligent software, and human-centered design.
             </p>
           </motion.div>
 
