@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
+import { useSystem } from "../context/SystemContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { setIsPaletteOpen } = useSystem();
 
   return (
     <>
@@ -23,8 +25,8 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* Desktop Navigation: Explicitly hidden on mobile, flex on md+ */}
-          <div className="hidden md:flex items-center gap-8 font-mono text-xs font-bold text-slate uppercase tracking-wider">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6 font-mono text-xs font-bold text-slate uppercase tracking-wider">
             <Link href="#projects" className="hover:text-blueprint transition-colors relative group">
               MODULES
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blueprint transition-all duration-300 group-hover:w-full" />
@@ -37,6 +39,16 @@ export default function Navbar() {
               CAPABILITIES
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blueprint transition-all duration-300 group-hover:w-full" />
             </Link>
+
+            {/* CMD PALETTE TRIGGER */}
+            <button 
+              onClick={() => setIsPaletteOpen(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-charcoal text-white hover:bg-blueprint transition-colors font-mono text-xs border border-steel"
+            >
+              <Terminal size={12} />
+              <span>[CMD_PALETTE]</span>
+            </button>
+
             <a
               href="mailto:shayan.yazdanie@gmail.com"
               className="px-6 py-2 bg-charcoal text-white border-2 border-charcoal hover:bg-blueprint hover:border-blueprint transition-all active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
@@ -45,7 +57,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle: Explicitly visible on mobile, hidden on md+ */}
+          {/* Mobile Menu Toggle */}
           <button
             className="flex md:hidden relative z-[60] p-2 -mr-2 text-charcoal hover:text-blueprint transition-colors"
             onClick={() => setIsOpen(!isOpen)}
@@ -92,6 +104,14 @@ export default function Navbar() {
                       &gt; {item}
                     </Link>
                   ))}
+                  
+                  {/* Mobile Command Palette Trigger */}
+                  <button 
+                    onClick={() => { setIsPaletteOpen(true); setIsOpen(false); }}
+                    className="text-lg font-bold font-mono text-blueprint hover:text-charcoal transition-colors border-b border-steel/30 pb-2 text-left"
+                  >
+                    &gt; [CMD_PALETTE]
+                  </button>
                 </div>
 
                 <div className="mt-auto pb-12">
