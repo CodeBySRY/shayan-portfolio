@@ -15,7 +15,7 @@ export function SystemProvider({ children }) {
       }
 
       // 2. THE TRIGGER: Using e.metaKey (Mac) or e.ctrlKey (Windows)
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'j')) {
         e.preventDefault(); // Stop Browser from opening search/history
         e.stopPropagation(); // Stop other UI components from ignoring this
         console.log("SYS_DEBUG: Toggle command executing...");
