@@ -29,7 +29,7 @@ const systemCapabilities = [
     class: "SYS.DEV",
     title: "Development Tools",
     icon: <Wrench className="w-4 h-4 sm:w-5 sm:h-5 text-charcoal" />,
-    specs: ["Docker", "AWS (EC2)", "Git", "Linux", "Figma", "Photoshop"],
+    specs: ["Docker", "AWS (EC2)", "Git", "Linux", "Figma", "Vercel"],
     version: "v5.0"
   }
 ];
